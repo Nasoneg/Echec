@@ -1,16 +1,16 @@
 <?php
 // src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace Echec\UserBundle\Entity;
 
-use FOS\UserBundle\Model\User;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class Member extends User
+class User extends BaseUser
 {
     /**
      * @ORM\Id
@@ -19,9 +19,9 @@ class Member extends User
      */
     protected $id;
 
-    public function __construct()
+    /*public function __construct()
     {
         parent::__construct();
         // your own logic
-    }
+    }*/
 }

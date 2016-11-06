@@ -1,6 +1,10 @@
+echec_user:
+    resource: "@EchecUserBundle/Resources/config/routing/routingAll.xml"
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+# Routing de base de FOSUser remplacé par echec_user
+# fos_user:
+#    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -137,3 +137,39 @@ notepad.exe vendor/lexik/maintenance-bundle/README.md
 gedit vendor/lexik/maintenance-bundle/README.md
 #1478370264
 /usr/local/php5.6/bin/php composer.phar update lexik/maintenance-bundle
+#1478436411
+/usr/local/php5.6/bin/php debug:router
+#1478436449
+/usr/local/php5.6/bin/php app/console debug:router
+#1478436473
+/usr/local/php5.6/bin/php bin/console debug:router
+#1478436476
+/usr/local/php5.6/bin/php app/console debug:router
+#1478441286
+ls
+#1478441291
+cd app
+#1478441293
+ls
+#1478441300
+ls cache
+#1478441414
+/usr/local/php5.6/bin/php bin/console security:check
+#1478441427
+/usr/local/php5.6/bin/php app/console security:check
+#1478441506
+cd ../
+#1478441509
+/usr/local/php5.6/bin/php app/console security:check
+#1478441525
+/usr/local/php5.6/bin/php bin/console security:check
+#1478441633
+HTTPDUSER='ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\ -f1'
+#1478449182
+/usr/local/php5.6/bin/php app/console security:check
+#1478449398
+/usr/local/php5.6/bin/php app/console fos:user:create nasoneg nasone.g@hotmail.fr guillaumen
+#1478449667
+/usr/local/php5.6/bin/php app/console fos:user:promote nasoneg ROLE_SUPER_ADMIN
+#1478452349
+/usr/local/php5.6/bin/php app/console generate:bundle

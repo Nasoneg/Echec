@@ -1,0 +1,39 @@
+security: 
+  encoders: 
+    FOS\UserBundle\Model\UserInterface: bcrypt
+    
+  firewalls: 
+    dev: 
+      pattern: ^/(_(profiler|wdt))/
+      security: false
+    main: 
+      anonymous: true
+      form_login: 
+        #Redirige vers une page de vérification de connexion
+        check_path: fos_user_security_check
+        csrf_token_generator: security.csrf.token_manager
+        default_target_path: /
+        #Si une erreur surgit, redirige vers la page actuelle
+        failure_path: ~
+        #Chemin vers la page de login
+        login_path: fos_user_security_login
+        provider: fos_userbundle
+        #Active les sessions
+        remember_me: true
+        #Empêche de faire précédent
+        use_forward: false
+      logout: 
+        path: fos_user_security_logout
+        target: /
+      #Configuration des sessions
+      remember_me:
+        secret: %secret%
+        lifetime: 31536000 
+        # Durée de la session : 1 an
+        path: /
+        domain: ~
+      pattern: .*
+      
+  providers: 
+    fos_userbundle: 
+      id: fos_user.user_provider.username

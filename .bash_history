@@ -173,3 +173,15 @@ HTTPDUSER='ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]gin
 /usr/local/php5.6/bin/php app/console fos:user:promote nasoneg ROLE_SUPER_ADMIN
 #1478452349
 /usr/local/php5.6/bin/php app/console generate:bundle
+#1478554000
+/usr/local/php5.6/bin/php app/console assets:install --symlink --relative
+#1478557247
+/usr/local/php5.6/bin/php app/console clear:cache --env=dev
+#1478557275
+/usr/local/php5.6/bin/php app/console cache:clear --env=dev
+#1478557393
+rm -rf app/ache/*
+#1478558342
+/usr/local/php5.6/bin/php app/console cache:clear
+#1478558363
+/usr/local/php5.6/bin/php app/console cache:clear --env=prod

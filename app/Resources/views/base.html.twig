@@ -7,11 +7,40 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
         {% endblock %}
         {% block stylesheetsMenu %}
-            <link rel="stylesheet" type="text/css" href="{{ asset('css/menuCss.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/menu_base.css') }}" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% block menu %}{% endblock %}
-        <a href="/Echec/web/app_dev.php/connexion">Connexion</a>
+        {% block menu %}
+        <ul id="menu_base">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
+            {% endif %}
+            {% if app.environment == "dev" %}
+                <li><a href=" {{ app.request.basepath }}/app_dev.php">Accueil</a></li>
+	    {% else %}
+	        <li><a href=" {{ app.request.basepath }}">Accueil</a></li>
+	    {% endif %}
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('fos_user_profile_show') }}">
+                    Compte
+                </a></li>
+                {% if 'compte' in app.request.requestUri %}
+			<li><a href="{{ path('fos_user_profile_edit') }}">
+			    Editer Compte
+			</a></li>
+			<li><a href="{{ path('fos_user_change_password') }}">
+			    Changer MDP
+			</a></li>
+                {% endif %}
+                <li><a href="{{ path('fos_user_security_logout') }}">
+                   {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a></li>
+            {% else %}
+          	<li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+            {% endif %}
+        </ul>
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}

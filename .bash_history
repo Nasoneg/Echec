@@ -185,3 +185,111 @@ rm -rf app/ache/*
 /usr/local/php5.6/bin/php app/console cache:clear
 #1478558363
 /usr/local/php5.6/bin/php app/console cache:clear --env=prod
+#1478627972
+composer require ed/blog-bundle:v1.0.5
+#1478628000
+/usr/local/php5.6/bin/php composer require ed/blog-bundle:v1.0.5
+#1478628010
+/usr/local/php5.6/bin/php app/console composer require ed/blog-bundle:v1.0.5
+#1478628064
+/usr/local/php5.6/bin/php composer.phar require ed/blog-bundle:v1.0.5
+#1478628808
+/usr/local/php5.6/bin/php composer.phar require ed/blog-bundle:v1.0.5
+#1478628916
+/usr/local/php5.6/bin/php composer.phar update
+#1478628979
+/usr/local/php5.6/bin/php composer.phar require ed/blog-bundle:v1.0.5
+#1478629279
+/usr/local/php5.6/bin/php composer.phar require eko/feedbundle:1.2.5 ed/blog-bundle:v1.0.5
+#1479830161
+composer require ed/blog-bundle
+#1479830239
+/usr/local/php5.6/bin/php composer.phar require eko/feedbundle:1.2.5
+#1479830339
+/usr/local/php5.6/bin/php composer.phar require ed/blog-bundle:v1.0.5
+#1479830497
+/usr/local/php5.6/bin/php composer.phar require friendsofsymfony/user-bundle:"~2.0@dev" eko/feedbundle:1.2.5 ed/blog-bundle:v1.0.5
+#1479830765
+/usr/local/php5.6/bin/php composer.phar require sonata-project/admin-bundle:dev-master friendsofsymfony/user-bundle:"~2.0@dev" eko/feedbundle:1.2.5 ed/blog-bundle:v1.0.5
+#1479830795
+/usr/local/php5.6/bin/php composer.phar require sonata-project/admin-bundle:dev-master friendsofsymfony/user-bundle:"~2.0@dev" eko/feedbundle:1.2.5 ed/blog-bundle:v1.0.5
+#1479831133
+/usr/local/php5.6/bin/php composer.phar update
+#1479831257
+/usr/local/php5.6/bin/php composer.phar update
+#1479831313
+/usr/local/php5.6/bin/php composer.phar update
+#1479833447
+/usr/local/php5.6/bin/php sonata:easy-extends:generate --dest=src SonataMediaBundle
+#1479833469
+/usr/local/php5.6/bin/php app/console sonata:easy-extends:generate --dest=src SonataMediaBundle
+#1479833546
+/usr/local/php5.6/bin/php app/console sonata:easy-extends:generate --dest=src SonataMediaBundle
+#1479833645
+mkdir web/uploads
+#1479833657
+mkdir web/uploads/media
+#1479833668
+sudo chmod -R 0777 web/uploads
+#1479833699
+mkdir web/testt
+#1479833730
+ls
+#1479833735
+cd web
+#1479833737
+ls
+#1479833744
+cd uploads
+#1479833749
+mkdir media
+#1479833759
+ls
+#1479833767
+cd ..
+#1479833781
+sudo chmod -R 0777 web/uploads
+#1479834506
+/usr/local/php5.6/bin/php app/console as:in --symlink
+#1479834765
+/usr/local/php5.6/bin/php app/console route:debug
+#1479834784
+/usr/local/php5.6/bin/php app/console router:debug
+#1479835152
+/usr/local/php5.6/bin/php app/console as:in --symlink
+#1479835304
+/usr/local/php5.6/bin/php app/console doctrine:schema:validate
+#1479835334
+/usr/local/php5.6/bin/php app/console doctrine:generate:entity
+#1479835478
+/usr/local/php5.6/bin/php app/console doctrine:schema:validate
+#1479835492
+/usr/local/php5.6/bin/php app/console as:in --symlink
+#1479835511
+/usr/local/php5.6/bin/php app/console as:du --env=prod
+#1479835573
+/usr/local/php5.6/bin/php app/console doctrine:schema:validate
+#1479835592
+/usr/local/php5.6/bin/php app/console doc:sc:update --force
+#1479835598
+/usr/local/php5.6/bin/php app/console doctrine:schema:validate
+#1479835681
+/usr/local/php5.6/bin/php app/console doctrine:schema:validate
+#1479836047
+/usr/local/php5.6/bin/php app/console router:debug
+#1479836337
+/usr/local/php5.6/bin/php app/console router:debug
+#1479836355
+/usr/local/php5.6/bin/php app/console debug:route
+#1479836368
+/usr/local/php5.6/bin/php app/console doctrine:schema:validate
+#1479836530
+/usr/local/php5.6/bin/php app/console doctrine:schema:update --force
+#1479836537
+/usr/local/php5.6/bin/php app/console doctrine:schema:validate
+#1479837952
+/usr/local/php5.6/bin/php app/console composer.phar require symfony/assetic-bundle
+#1479837991
+/usr/local/php5.6/bin/php composer.phar require symfony/assetic-bundle
+#1479840119
+/usr/local/php5.6/bin/php app/console fos:user:promote

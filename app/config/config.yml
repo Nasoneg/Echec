@@ -91,3 +91,66 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+# Assetic Configuration
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    bundles:    [ EDBlogBundle ]
+    filters:
+        cssrewrite: ~
+    
+# EdBlog Configuration
+ed_blog:
+    entities:
+        user_model_class: Echec\UserBundle\Entity\User
+        article_class: Echec\ArticleBundle\Entity\Article
+        article_meta_class: Echec\ArticleBundle\Entity\ArticleMeta
+        blog_term_class: Echec\ArticleBundle\Entity\Term
+        blog_taxonomy_class: Echec\ArticleBundle\Entity\Taxonomy
+        blog_taxonomy_relation_class: Echec\ArticleBundle\Entity\TaxonomyRelation
+        blog_comment_class: Echec\ArticleBundle\Entity\Comment
+        blog_settings_class: Echec\ArticleBundle\Entity\Settings
+
+        
+# EkoFeed Configuration (RSS Configuration)
+#eko_feed:
+#    feeds:
+#        article:
+#            title:       'My articles/posts'
+#            description: 'Latests articles'
+#            link:
+#                route_name: ed_blog_admin_feed
+#                route_params: {type: rss} # necessary if route cantains required parameters
+#            encoding:    'utf-8'
+#            author:      'Acme' # Only required for Atom feeds        
+        
+# Sonata Media Configuration
+sonata_media:
+   default_context: default
+   db_driver: doctrine_orm
+   # or doctrine_mongodb, doctrine_phpcr
+   contexts:
+       default:  # the default context is mandatory
+           providers:
+               - sonata.media.provider.dailymotion
+               - sonata.media.provider.youtube
+               - sonata.media.provider.image
+               - sonata.media.provider.file
+
+           formats:
+               crop:  { width: 600 , quality: 80}
+               small: { width: 100 , quality: 70}
+               big:   { width: 500 , quality: 70}
+               lib:   { width: 350 , height: 250 , quality: 70}
+               excerpt:   { width: 780 , height: 500 , quality: 70}
+
+   cdn:
+       server:
+           path: /uploads/media 
+           # http://media.sonata-project.org/
+
+   filesystem:
+       local:
+           directory:  %kernel.root_dir%/../web/uploads/media
+           create:     false

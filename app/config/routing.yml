@@ -18,7 +18,7 @@ ed_blog_admin_feed:
     defaults:  { _controller: EDBlogBundle:Backend/Feed:feed }
 
 ed_blog_frontend:
-    resource: "@EDBlogBundle/Controller/Frontend/"
+    resource: "@EchecArticleBundle/Controller/Frontend/"
     type:     annotation
     prefix:   /
 

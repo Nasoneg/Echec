@@ -1,0 +1,6 @@
+{% if is_granted('ACCESS_COMMENTS') %}
+    <div class="js-comments-content" id="comments">
+        {% include 'EchecArticleBundle:Comment:comments.html.twig' %}
+        {% include 'EchecArticleBundle:Comment:form.html.twig' %}
+    </div>
+{% endif %}

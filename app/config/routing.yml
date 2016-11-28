@@ -23,7 +23,7 @@ ed_blog_frontend:
     prefix:   /
 
 ed_blog:
-    resource: "@EDBlogBundle/Controller/Backend/"
+    resource: "@EchecArticleBundle/Controller/Backend/"
     type:     annotation
     prefix:   /blog/admin/
 

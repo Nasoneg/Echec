@@ -1,0 +1,44 @@
+{% extends 'EchecArticleBundle:Layout:blog_admin_base.html.twig' %}
+
+{% set currentPath = app.request.attributes.get('_route') %}
+
+{% block favicon %}
+  {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+  {{ parent() }}
+  
+  {% block header %}
+    {{ parent() }}
+    
+    <header role="banner" class="header--dashboard">
+      <a class="flright text--mini" href="{{ path('ed_blog_homepage') }}">&lt; <span class="hidden-xs">Retour au </span>site</a>
+      <div class="logoAdmin" title="">{#<img class="margin--r" src="{{ asset('bundles/edblog/img/svg/edblog-white-logo.svg') }}" alt="EdBlog">#}Panel Admin CEM</div>
+    </header>
+
+  {% endblock header %}
+
+  <div class="wrap {% block wrapclass %}{% endblock wrapclass %}">
+
+    {% include('EchecArticleBundle:Homepage:_menu.html.twig') with {'currentPath': currentPath} %}
+
+    {% block content %}
+    {% endblock %}
+
+    {# Used for footer #}
+  </div>
+
+  {% block footer %}
+    {{ parent() }}
+  {% endblock footer %}
+
+{% endblock %} {# endblock body #}
+
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}

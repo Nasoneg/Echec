@@ -1,0 +1,55 @@
+<header role="banner" class="header--app">
+  <div class="logo" title="">{#<img class="margin--r" src="{{ asset('bundles/edblog/img/svg/edblog-logo.svg') }}" alt="EdBlog">#}CEM Blog</div>
+	<nav class="flright visible-sm-block visible-md-block visible-lg-block">
+            
+    {% if app.user %}
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
+            {% endif %}
+            {% if app.environment == "dev" %}
+                <li><a href=" {{ app.request.basepath }}/app_dev.php">Accueil</a></li>
+	    {% else %}
+	        <li><a href=" {{ app.request.basepath }}">Accueil</a></li>
+	    {% endif %}
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('fos_user_profile_show') }}">
+                    Compte
+                </a></li>
+                {% if 'compte' in app.request.requestUri %}
+			<li><a href="{{ path('fos_user_profile_edit') }}">
+			    Editer Compte
+			</a></li>
+			<li><a href="{{ path('fos_user_change_password') }}">
+			    Changer MDP
+			</a></li>
+                {% endif %}
+            {% else %}
+          	<li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+            {% endif %}
+      <a class="{% if currentPath == 'app_blog' or currentPath == 'ed_blog_frontend_index' %} active{% endif %}" href="{{ path('ed_blog_frontend_index') }}">Articles</a>
+      <a class="" href="{{ path('ed_blog_homepage_index') }}">Panel Admin</a>
+      <a class="" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+    {% else %}
+      <a class="{% if currentPath == 'ed_blog_frontend_index' or currentPath == 'ed_blog_frontend_index' %} active{% endif %}" href="{{ path('ed_blog_frontend_index') }}">Articles</a>
+      {#<a class="btn btn-primary white" href="{{ path('fos_user_security_login') }}">Login to access admin panel</a>#}
+    {% endif %}
+       {# <a href="{{ path('ed_blog_admin_feed', { 'type':  'rss' }) }}"><i class="fa fa-rss"></i> rss</a>
+        <a href="{{ path('ed_blog_admin_feed', { 'type':  'atom' }) }}"><i class="fa fa-rss"></i> atom</a>#}
+	</nav>
+</header>
+
+{# Menu on small devices #}
+<div class="header--app small-res visible-xs-block">
+  <a href="#" class="brdr--0 text--14 js-toggler"><i class="fa fa-reorder"></i> Menu</a>
+	<nav class="toggled">
+    {% if app.user %}
+      <a class="{% if currentPath == 'ed_blog_frontend_index'%} active{% endif %}" href="{{ path('ed_blog_frontend_index') }}">Articles</a>
+      <a class="" href="{{ path('ed_blog_homepage_index') }}">Panel Admin</a>
+      <a class="" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+    {% else %}
+      <a class="{% if currentPath == 'ed_blog_frontend_index'%} active{% endif %}" href="{{ path('ed_blog_frontend_index') }}">Articles</a>
+     {# <a class="btn btn-primary white" href="{{ path('fos_user_security_login') }}">Login to access admin panel</a>#}
+    {% endif %}
+	</nav>
+</div>

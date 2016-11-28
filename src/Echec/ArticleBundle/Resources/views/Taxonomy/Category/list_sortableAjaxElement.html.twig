@@ -1,0 +1,15 @@
+
+<tr>
+    {% if taxonomy.term is not defined  %}
+        {% set taxonomy = taxonomy[0] %}
+    {% endif %}
+    <td>{{ taxonomy|categoryLevelSlash }}</td>
+    <td>{{ taxonomy.term.slug }}</td>
+    <td>{{ taxonomy.description }}</td>
+    <td>{{ taxonomy.count | default('0') }}</td>
+    <td>{% if taxonomy.parent %}{{ taxonomy.parent.term.title }}{% endif %}</td>
+    <td>
+        <a href="#" class="js-delete-object" data-title="Supprimer catégorie" data-text="Êtes vous sur de vouloir supprimer cette catégorie ?" data-href="{{ path('ed_blog_category_delete', {'slug': taxonomy.term.slug} ) }}" data-toggle="modal" data-target="#delete"><i class="fa fa-times"></i> Supprimer</a>
+        <a href="{{ path('ed_blog_category_edit', {'slug': taxonomy.term.slug}) }}" class="js-edit-{{ taxonomy.term.slug }}"><i class="fa fa-pencil"></i> Editer</a>
+    </td>
+</tr>

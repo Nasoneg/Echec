@@ -96,7 +96,7 @@ swiftmailer:
 assetic:
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
-    bundles:    [ EDBlogBundle ]
+    bundles:    [ EDBlogBundle, EchecArticleBundle ]
     filters:
         cssrewrite: ~
     
@@ -131,7 +131,7 @@ sonata_media:
    db_driver: doctrine_orm
    # or doctrine_mongodb, doctrine_phpcr
    contexts:
-       default:  # the default context is mandatory
+       default:
            providers:
                - sonata.media.provider.dailymotion
                - sonata.media.provider.youtube
